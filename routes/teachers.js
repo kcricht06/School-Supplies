@@ -13,7 +13,8 @@ router.get('/tlanding', function(req, res, next) {
 });
 
 router.get('/wishlist-new', function(req, res, next) {
-  res.send('TEACHER make a NEW WISHLIST goes here');
+  // res.send('TEACHER make a NEW WISHLIST goes here');
+  res.render('wishlist-new');
 });
 
 router.get('/wishlist-inprog', function(req, res, next) {
