@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Login </title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+  </head>
+  <body>
+    <div class='container'>
+       <!-- NAV BUTTONS -->
+      <header class='row page-header'>
+        <div class='col-xs-6'>
+          <button type='button' class='btn btn-primary btn-lg'>Home</button>
+        </div>
+        <div class='col-xs-6'>
+          <button type='button' class='btn btn-primary btn-lg pull-right'>Login</button>
+        </div>
+      </header>
+
+       <!-- TITLE STATEMENTS -->
+      <section class='text-center'>
+        <h1>Pencil, Paper, Scissors</h1>
+        <p>Connecting the classroom and community</p>
+        <h4 id='statement'> We are a platform for teachers to request classroom supplies from <br> generous givers. Please continue as a teacher or giver below.</h4>
+      </section>
+
+       <!-- TEACHER-GIVER BUTTONS -->
+      <section class='row text-center'>
+        <form method='get' action='/teachers/landing'>
+          <div class='col-sm-6 col-xs-12'>
+            <button type='submit' name='select-teacher' class='btn btn-primary btn-xl btnWidth'>I'm a Teacher</button>
+          </div>
+        </form>
+        <div class='col-sm-6 col-xs-12'>
+          <button type='button' class='btn btn-primary btn-xl btnWidth'>I'm a Giver</button>
+        </div>
+      </section>
+    </div>
+
+
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=' crossorigin='anonymous'></script>
+  </body>
+</html>

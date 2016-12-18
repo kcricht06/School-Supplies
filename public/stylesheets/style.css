@@ -6,3 +6,17 @@ body {
 a {
   color: #00B7FF;
 }
+
+#statement {
+  margin: 10% 0;
+}
+
+.btn-xl {
+  padding: 60px 20px;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.btnWidth {
+  width: 300px;
+}
