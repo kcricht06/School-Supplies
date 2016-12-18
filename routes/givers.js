@@ -8,16 +8,16 @@ router.get('/', function(req, res, next) {
 
 //--------------------------------------------------
 
-router.get('/tlanding', function(req, res, next) {
-  res.render('tlanding');
+router.get('/glanding', function(req, res, next) {
+  res.render('glanding');
 });
 
 router.get('/wishlist-new', function(req, res, next) {
-  res.send('TEACHER make a NEW WISHLIST goes here');
+  res.send('GIVER make a VIEW NEW WISHLIST goes here');
 });
 
-router.get('/wishlist-inprog', function(req, res, next) {
-  res.send('TEACHER make IN-PROGRESS WISHLIST goes here');
+router.get('/wishlist-fulfilled', function(req, res, next) {
+  res.send('GIVER make VIEW IN-PROGRESS WISHLIST goes here');
 });
 
 module.exports = router;

@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 // var users = require('./routes/users');
 var teachers = require('./routes/teachers');
-// var givers = require('./routes/givers')
+var givers = require('./routes/givers');
 
 var app = express();
 var cors = require('cors');
@@ -32,8 +32,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 // defined endpoint for teachers
 app.use('/teachers', teachers);
-// defined endpoint for givers
-// app.use('/givers', givers);
+// defined endpoint for givers ****// USES THE ROUTES FILES
+app.use('/givers', givers);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

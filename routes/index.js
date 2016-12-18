@@ -6,9 +6,9 @@ var router = express.Router();
 //   res.render('index', { title: 'Express' });
 // });
 
+/* GET home page */
 router.get('/', function(req, res, next) {
-  // res.render('index', { title: 'Express' });
-  res.redirect('/teachers');
+  res.render('index');
 });
 
 
