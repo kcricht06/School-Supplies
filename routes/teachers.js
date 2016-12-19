@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+var amazon = require('amazon-product-api');
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.render('index');
@@ -13,7 +13,7 @@ router.get('/tlanding', function(req, res, next) {
 });
 
 router.get('/wishlist-new', function(req, res, next) {
-  // res.send('TEACHER make a NEW WISHLIST goes here');
+
   res.render('wishlist-new');
 });
 

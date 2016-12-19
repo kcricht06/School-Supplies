@@ -5,6 +5,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
 var index = require('./routes/index');
 // var users = require('./routes/users');
@@ -13,6 +14,13 @@ var givers = require('./routes/givers');
 
 var app = express();
 var cors = require('cors');
+var amazon = require('amazon-product-api');
+
+var client = amazon.createClient({
+  awsId: process.env.ACCESS_KEY_ID,
+  awsSecret: process.env.SECRET_ACCESS_KEY,
+  awsTag: process.env.AWS_TAG
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
