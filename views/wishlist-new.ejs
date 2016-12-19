@@ -1,0 +1,80 @@
+<% include ./partials/header %>
+
+  <div class='col-xs-3 text-center'>
+    <button type='button' class='btn btn-primary btn-lg header-items'>Login</button>
+  </div>
+</header>
+
+<!-- ============================================================== -->
+
+<!-- TOP ROW INPUT FORMS -->
+<div class='container-fluid'>
+  <div class='row'>
+    <form class="form-inline">
+
+      <!-- WISH LIST INPUT BOX -->
+      <div class='col-md-3 form-group'>
+        <label for="wishlist-name">New Wish List:</label>
+        <input id="wishlist-name" type="text" class="form-control" placeholder='Name'>
+      </div>
+
+      <!-- SEARCH INPUT BOX -->
+      <div class='col-md-5 form-group'>
+        <label for="item-search">Search:</label>
+        <input id="item-search" type="text" class="form-control" placeholder='Item'>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+
+      <!-- DESIRED DATE INPUT BOX -->
+      <div class='col-md-4'>
+        <label for="date-field">Desired Date:</label>
+        <input id="date-field" type="text" class="form-control" placeholder='Month/Day/Year'>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<!-- ============================================================== -->
+
+<!-- SEARCH ITEMS PANEL -->
+<div class='row'>
+  <div class='col-xs-12 col-md-8'>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Items</h3>
+      </div>
+      <!-- SEARCH ITEMS PANEL BODY: populate items here -->
+      <div class='panel-body pre-scrollable'>
+        Hopefully items will be populated here
+      </div>
+    </div>
+
+    <!-- ADD ITEM BUTTON -->
+    <div class='col-md-8'>
+      <button type='button' class='btn btn-primary btn-lg btn-bot'>Add Item</button>
+    </div>
+  </div>
+
+  <!-- ADDED ITEMS PANEL -->
+  <div class='col-xs-12 col-md-4'>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Added Items</h3>
+      </div>
+
+      <!-- ADDED ITEMS PANEL BODY: populate added items here -->
+      <div class='panel-body pre-scrollable'>
+        Hopefully items that are added will appear here
+      </div>
+    </div>
+
+    <!-- SUBMIT BUTTON -->
+    <div class='col-md-4'>
+      <button type='button' class='btn btn-primary btn-lg btn-bot'>Submit</button>
+    </div>
+
+  </div>
+</div>
+
+<% include ./partials/footer %>
