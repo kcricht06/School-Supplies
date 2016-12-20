@@ -17,6 +17,7 @@ var cors = require('cors');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+var amazon = require('amazon-product-api');
 
 // This enables cross origin resource sharing
 app.use(cors());
