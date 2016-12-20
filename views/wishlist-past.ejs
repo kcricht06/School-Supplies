@@ -1,0 +1,71 @@
+<% include ./partials/header %>
+
+<div class='col-xs-3 text-center'>
+  <button type='button' class='btn btn-primary btn-lg header-items'>Login</button>
+</div>
+</header>
+
+<!-- ============================================================== -->
+<!-- MY WISHLIST -->
+<div class="row">
+  <div class="col-md-4">
+    <h3 class="mywish">My Wishlists</h3>
+  </div>
+
+
+  <!-- DESIRED DATE INPUT BOX -->
+  <div class='col-md-4'>
+    <form class="form-inline">
+      <label for="date-field">
+        <h3>Due By:</h3>
+      </label>
+      <input id="date-field" type="text" class="form-control" placeholder='Month/Day/Year'>
+    </form>
+  </div>
+</div>
+
+<!-- ============================================================== -->
+
+<!-- ADD ITEM BUTTON -->
+<div class="row">
+<!-- ACTIVE WISHLISTS BUTTON -->
+  <div class='col-md-5 btn-row'>
+    <form type='get'>
+      <button type='submit' class='btn btn-primary btn-lg btn-bot' formaction='/teachers/wishlist-active'>Active Wishlists</button>
+    </form>
+  </div>
+
+<!-- PAST WISHLISTS BUTTON -->
+  <div class='col-md-4 btn-row'>
+    <form type='get'>
+      <button type='submit' class='btn btn-primary btn-lg btn-bot' formaction='/teachers/wishlist-past'>Past Wishlists</button>
+    </form>
+  </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- SEARCH ITEMS PANEL -->
+<div class='row'>
+  <div class='col-xs-12 col-md-12'>
+    <div class="panel panel-default">
+
+<!-- SEARCH ITEMS PANEL BODY: populate items here -->
+      <div class='panel-body pre-scrollable'>
+        Hopefully items will be populated here
+      </div>
+    </div>
+
+<!-- DUPLICATE WISHLIST BUTTON -->
+
+    <div class='col-md-5'>
+      <button type='button' class='btn btn-primary btn-lg btn-bot'>Duplicate Wishlist</button>
+    </div>
+
+<!-- SEE ADDED ITEMS BUTTON -->
+    <div class='col-md-4'>
+      <button type='button' class='btn btn-primary btn-lg btn-bot'>See Added Items</button>
+    </div>
+  </div>
+
+</div>
+<% include ./partials/footer %>
