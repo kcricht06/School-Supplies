@@ -1,0 +1,21 @@
+<% include ./partials/header %>
+
+  <div class='col-xs-3 text-center'>
+    <button type='button' class='btn btn-primary btn-lg header-items'>Account</button>
+  </div>
+</header>
+
+<!-- TITLE STATEMENTS -->
+<section class='text-center'>
+  <h4 id='statement'> GIVERS GIVERS GIVERS GIVERS GIVERS GIVERS GIVERS </h4>
+</section>
+
+<!-- TEACHER-GIVER BUTTONS -->
+<section class='row'>
+  <form method='get' class='text-center form-inline'>
+    <button type='submit' name='select-teacher' formaction='/teachers/landing' class='btn btn-primary btn-xl float-lg-left'>I'm a Teacher</button>
+    <button type='submit' name='select-giver' formaction='/givers/landing' class='btn btn-primary btn-xl float-lg-right'>I'm a Giver</button>
+  </form>
+</section>
+
+<% include ./partials/footer %>

@@ -1,8 +1,266 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /*padding: 50px;*/
+  margin-top: 0;
+  font: 14px Helvetica, Arial, sans-serif;
+  background-color: #f6fff3;
+  margin-bottom: 60px;
+  color: #40291e;
 }
 
 a {
   color: #00B7FF;
 }
+
+h1 {
+  font: 50px 'Garamond', serif;
+  color: #40291e;
+  margin-top: 10px;
+}
+
+footer {
+  background-color: #dff2da;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+}
+
+.header-items {
+  margin-top: 35px;
+  margin-bottom: 10px;
+}
+.header-msg {
+  font: 25px 'Garamond', serif;
+  color: #40291e;
+}
+
+.footer-msg {
+  margin-top: 20px;
+}
+
+.btn {
+  background-color: #7c946f;
+  color: #40291e;
+}
+
+.btn-bot {
+  margin-bottom: 20px;
+}
+
+.btn-row {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.btn:hover {
+  background-color: #a9d98f;
+}
+
+.btn-xl {
+  padding: 60px 20px;
+  font-size: 20px;
+  border-radius: 10px;
+  width: 300px;
+  margin: 10px 40px;
+  margin-bottom: 40px;
+}
+
+.panel {
+  margin-top: 20px;
+
+}
+
+.page-header {
+  margin-top: 0px;
+  background-color: #dff2da;
+}
+
+.panel-body {
+  min-height: 450px;
+  max-height: 450px;
+}
+
+
+
+.date-input {
+  max-width: 50px;
+}
+
+#statement {
+  margin: 5% 0;
+}
+
+/* New Wishlist Styles */
+
+.new-wishlist-area{
+  width:100%;
+  height: 75vh;
+  border: 1px solid grey;
+  background-color: #dff2da;
+  overflow: scroll;
+}
+.new-wishlist-area-chosen{
+  width:100%;
+  height: 75vh;
+  border: 1px solid grey;
+  background-color: #dff2da;
+  overflow: scroll;
+}
+.new-wishlist-container.chosen{
+  border:2px solid red !important;
+}
+.new-wishlist-area .row{
+  margin-left:25px;
+}
+.new-wishlist-parameters{
+  line-height: 2em;
+  margin-bottom: 25px;
+}
+.new-wishlist-buttons button{
+  margin-bottom:25px;
+  width:100%;
+}
+.new-wishlist-container{
+  width:95%;
+  padding:5px;
+  border: 1px solid black;
+  margin: 15px 0px;
+  background-color: #f6fff3;
+  padding-top:15px;
+  height:150px;
+}
+.item-details{
+  display:inline-block;
+  width:55%;
+  float:right;
+}
+.item-name,.item-price{
+  margin-bottom:10px;
+}
+.new-wishlist-tab-img{
+  display:inline-block;
+  width:35%;
+  height:90%;
+  background-position: center;
+  background-size:cover;
+}
+/* Donor-Specific Wishlist Styles */
+
+.center-header .btn{
+  margin:15px 0px;
+}
+
+#donor-specific-wishlist-header{
+  line-height: 1em;
+}
+.wishlist-number{
+  padding-top:25px;
+  /*wishlist styles*/
+
+  .center-header{
+    text-align: center;
+    font-size: 1.5em;
+    padding: 25px 0px;
+  }
+  .help-button{
+    background-color: rgb(223, 242, 218);
+    display:inline-block;
+    /*float:right;*/
+    position:absolute;
+    right:20px;
+    top:10px;
+    text-align: center;
+    line-height: .65em;
+    border-radius: 45px;
+    font-size:2em;
+    padding:15px;
+    height:55px;
+    width:55px;
+    color: grey;
+    border: 1px solid grey;
+  }
+  .help-panel{
+    /*opacity:0;*/
+    position:absolute;
+    text-align: left;
+    padding:70px;
+    background-color:#bbddaa;
+    border:1px solid grey;
+    z-index: 2;
+    right:0px;
+    top:0px;
+    height:35vh;
+    width:500px;
+  }
+  .budget{
+    height:10vh;
+  }
+  .location{
+    margin-bottom:25px;
+  }
+  .location-form input{
+
+  }
+
+  .school-map{
+    width:100%;
+    height: 50vh;
+    border: 1px solid grey;
+  }
+
+  .wishlist-area{
+    background-color: #dff2da;
+    width: 100%;
+    height: 100vh;
+    border: 1px solid grey;
+    overflow: scroll;
+    padding:50px 75px;
+    margin-bottom:75px;
+  }
+  .wishlist-tab{
+    height:150px;
+    padding:0px 7.5px;
+    margin-bottom:15px;
+  }
+  .wishlist-tab div{
+    padding-top:15px;
+    width:100%;
+    height:100%;
+    border: 1px solid black;
+    margin: 15px 0px;
+    background-color: #f6fff3;
+  }
+
+  /* Donor checkout  */
+
+  .cc-form{
+
+  }
+  .order-form .form-control{
+    display:inline-block;
+    width: 200px;
+  }
+
+  #state,#zip,#ccv,#exp{
+    width:15%;
+  }
+  #credit-card{
+    width:35%;
+  }
+  #checkout-form input, #checkout-form select{
+    margin-bottom: 25px;
+  }
+  #donation-summary{
+    width:100%;
+    height:35vh;
+    border:1px solid grey;
+    background-color: #dff2da;
+  }
+  .bottom-buttons button{
+    width:100%;
+  }
