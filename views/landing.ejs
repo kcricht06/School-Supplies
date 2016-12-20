@@ -1,18 +1,7 @@
 <% include ./partials/header %>
-<% include layout%>
-  <script src="https://cdn.auth0.com/js/lock/10.6/lock.min.js"></script>
-  <script src="https://cdn.auth0.com/w2/auth0-7.4.min.js"></script>
-  <script type="text/javascript">
-  var auth0 = new Auth0({
-      domain:      process.env.AUTH0_DOMAIN,
-      clientID:    process.env.AUTH0_CLIENT_ID,
-      callbackURL: process.env.AUTH0_CALLBACK_URL
-  });
-  </script>
-
 
   <div class='col-xs-3 text-center'>
-    <a href="/login"><button type='submit' class='btn btn-primary btn-lg header-items btn-login'>Login</button></a>
+    <button type='button' class='btn btn-primary btn-lg header-items'>Account</button>
   </div>
 </header>
 
