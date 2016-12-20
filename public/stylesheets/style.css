@@ -43,6 +43,10 @@ footer {
   background-color: #7c946f;
 }
 
+.btn-bot {
+  margin-bottom: 20px;
+}
+
 .btn:hover {
   background-color: #a9d98f;
 }
@@ -56,9 +60,21 @@ footer {
   margin-bottom: 40px;
 }
 
+.btn-wl {
+  width: 180px;
+}
+
 .page-header {
   margin-top: 0px;
   background-color: #bbddaa;
+}
+
+#statement {
+  margin: 5% 0;
+}
+
+.date-input {
+  max-width: 50px;
 }
 
 #statement {
@@ -192,24 +208,48 @@ footer {
   background-color: #dff2da;
   overflow: scroll;
 }
+.new-wishlist-area-chosen{
+  width:100%;
+  height: 75vh;
+  border: 1px solid grey;
+  background-color: #dff2da;
+  overflow: scroll;
+}
+.new-wishlist-container.chosen{
+  border:2px solid red !important;
+}
+.new-wishlist-area .row{
+  margin-left:25px;
+}
 .new-wishlist-parameters{
   line-height: 2em;
   margin-bottom: 25px;
 }
 .new-wishlist-buttons button{
   margin-bottom:25px;
-}
-.new-wishlist-buttons button{
   width:100%;
 }
-.new-wishlist-tab div{
-  width:75%;
+.new-wishlist-container{
+  width:95%;
+  padding:5px;
   border: 1px solid black;
   margin: 15px 0px;
   background-color: #f6fff3;
   padding-top:15px;
   height:150px;
 }
+.item-details{
+  display:inline-block;
+  width:55%;
+  float:right;
+}
+.item-name,.item-price{
+  margin-bottom:10px;
+}
 .new-wishlist-tab-img{
+  display:inline-block;
+  width:35%;
   height:90%;
+  background-position: center;
+  background-size:cover;
 }

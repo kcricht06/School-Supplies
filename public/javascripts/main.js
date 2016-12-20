@@ -1,3 +1,33 @@
+function getObject(theObject) {
+    var result = null;
+    if(theObject instanceof Array) {
+        for(var i = 0; i < theObject.length; i++) {
+            result = getObject(theObject[i]);
+            if (result) {
+                break;
+            }
+        }
+    }
+    else
+    {
+        for(var prop in theObject) {
+            console.log(prop + ': ' + theObject[prop]);
+            if(prop == 'id') {
+                if(theObject[prop] == 1) {
+                    return theObject;
+                }
+            }
+            if(theObject[prop] instanceof Object || theObject[prop] instanceof Array) {
+                result = getObject(theObject[prop]);
+                if (result) {
+                    break;
+                }
+            }
+        }
+    }
+    return result;
+}
+
 $('.center-header a').on('click',function(e){
   e.preventDefault();
   $('.help-panel').removeClass('hidden');
@@ -52,17 +82,46 @@ function wishlistApiQuery(keyword){
   });
   apiQuery.done(function(product){
     $('.new-wishlist-area .row').empty();
+    console.log('product: ',product);
     for(var i=0; i<product.length; i++){
+            var priceExists = product[i].ItemAttributes[0].ListPrice
+            var label =  product[i].ItemAttributes[0].Label[0];
+
+            var price = priceExists ? product[i].ItemAttributes[0].ListPrice[0].FormattedPrice[0] : 'No Price';
+
+            var image =  product[i].MediumImage[0].URL[0];
+
+
       var nwldata = [
         '<div class="new-wishlist-tab col-sm-4">',
-          '<div class="panel">',
-            '<img class="new-wishlist-tab-img" src="',product[i].imgUrl,'" />',
-          '</div>',
+              '<div class="new-wishlist-container panel">',
+                        '<div class="item-details">',
+                            '<div class="item-name">',label,'</div>',
+                            '<div class="item-price">',price,'</div>',
+                        '</div>',
+                        '<div class="new-wishlist-tab-img" style= "background-image:url(\'',image,'\')"/>',
+                        '</div>',
+              '</div>',
         '</div>'
         ].join('');
       $('.new-wishlist-area .row').append(nwldata);
-      console.log('nwldata: ',nwldata);
     }
-    console.log('product: ',product);
   });
 }
+
+$('body').on('click','.new-wishlist-container',function(){
+  console.log('added');
+  $(this).toggleClass('chosen');
+});
+$('#add-items').on('click',function(){
+  $('.chosen').each(function(){
+    $(this).toggleClass('chosen');
+    var temp=$(this);
+    var result=$(this).clone();
+    $('.new-wishlist-area-chosen').append(result);
+  });
+});
+
+$('#submit-list').on('click',function(){
+
+});

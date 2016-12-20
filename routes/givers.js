@@ -41,27 +41,32 @@ router.get('/new-wishlist', function(req,res,next){
   res.render('new-wishlist');
 });
 
-router.post('/wishlist-api',function(req,res,next){
-    // res.render('new-wishlist');
-        client.itemSearch({
-              keywords: req.body.keyword,
-              responseGroup: 'ItemAttributes,Images'
-            }).then(function(results){
-              var returnData = [];
-              for(var i=0; i<results.length; i++){
-                returnData.push({
-                  imgUrl: results[i].MediumImage[0].URL[0],
-                  itemPrice: results[i].ItemAttributes[0].ListPrice[0].FormattedPrice[0],
-                  itemName: results[i].ItemAttributes[0].Title[0]
-                });
-              }
-              res.json(returnData);
-            }).catch(function(err){
-              console.log('THERE WAS AN ERROR - Catch: ');
-              console.log(err.Error);
-              res.render('error');
-            });
-  // res.render('new-wishlist');
+router.post('/wishlist-api', function(req, res, next){
+  client.itemSearch({
+  keywords: req.body.keyword,
+  responseGroup: 'ItemAttributes,Offers,Images'
+}).then(function(results){
+  res.json(results);
+}).catch(function(err){
+  console.log(err);
+  });
 });
+              // for(var i=0; i<results.length; i++){
+              //   returnData.push({
+              //     imgUrl: results[i].MediumImage[0].URL[0],
+              //     itemPrice: results[i].ItemAttributes[0].ListPrice[0].FormattedPrice[0],
+              //     itemName: results[i].ItemAttributes[0].Label[0]
+              //   });
+              // }
+
+
+//               res.json(response);
+//             }).catch(function(err){
+//               console.log('THERE WAS AN ERROR - Catch: ');
+//               console.log(err.Error);
+//               res.render('error');
+//             });
+//   // res.render('new-wishlist');
+// });
 
 module.exports = router;
