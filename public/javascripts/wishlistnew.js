@@ -23,4 +23,5 @@ $(document).ready(function(){
         console.log('ImageURL: ', response[0].MediumImage[0].URL[0]);
    });
   }
+  
 });

@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var amazon = require('amazon-product-api');
+var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
+
 
 var client = amazon.createClient({
   awsId: process.env.ACCESS_KEY_ID,
