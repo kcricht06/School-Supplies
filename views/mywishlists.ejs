@@ -1,0 +1,80 @@
+<% include ./partials/header %>
+
+  <div class='col-xs-3 text-center'>
+    <button type='button' class='btn btn-primary btn-lg header-items'>Login</button>
+  </div>
+</header>
+
+<!-- ============================================================== -->
+
+<!-- TOP ROW INPUT FORMS -->
+<div class='container-fluid'>
+  <div class='row'>
+
+      <!-- WISH LIST INPUT BOX -->
+      <div class='col-xs-6 col-md-2'>
+        <button type='button' class='btn btn-primary btn-lg btn-wl'>Active Wish Lists</button>
+      </div>
+
+      <!-- SEARCH INPUT BOX -->
+      <div class='col-xs-6 col-md-2'>
+        <button type='button' class='btn btn-primary btn-lg btn-wl'>Past Wish Lists</button>
+      </div>
+
+      <div class='col-md-1'>
+        <label for="date-field">Desired Date By:</label>
+      </div>
+
+      <div class='col-md-1'>
+        <input id="date-field" type="text" class="form-control" placeholder='Month'>
+      </div>
+
+      <div class='col-md-1'>
+        <input id="date-field" type="text" class="form-control" placeholder='Day'>
+      </div>
+
+      <div class='col-md-1'>
+        <input id="date-field" type="text" class="form-control" placeholder='Year'>
+      </div>
+
+      <!-- DESIRED DATE INPUT BOX -->
+      <!-- <div class='col-md-4'>
+        <label for="date-field">Desired Date:</label>
+        <input id="date-field" type="text" class="form-control" placeholder='Month/Day/Year'>
+      </div> -->
+  </div>
+</div>
+
+<!-- ============================================================== -->
+
+<!-- WISHLIST ITEMS PANEL -->
+<div class='row'>
+  <div class='col-xs-12 col-md-12'>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Items</h3>
+      </div>
+      <!-- WISHLIST ITEMS PANEL BODY: populate items here -->
+      <div class='panel-body pre-scrollable'>
+        Hopefully items will be populated here
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class='container-fluid'>
+  <div class='row'>
+      <!-- EDIT WISH LIST BUTTON -->
+      <div class='col-xs-6 col-md-2'>
+        <button type='button' class='btn btn-primary btn-lg btn-bot btn-wl'>Edit Wish List</button>
+      </div>
+
+      <!-- SEE ADDED ITEMS BUTTON -->
+      <div class='col-xs-6 col-md-2'>
+        <button type='button' class='btn btn-primary btn-lg btn-bot btn-wl'>See Added Items</button>
+      </div>
+  </div>
+</div>
+
+<% include ./partials/footer %>
