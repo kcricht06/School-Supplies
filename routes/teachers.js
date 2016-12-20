@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var amazon = require('amazon-product-api');
+var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
+
 
 var client = amazon.createClient({
   awsId: process.env.ACCESS_KEY_ID,
@@ -18,9 +20,8 @@ router.get('/tlanding', function(req, res, next) {
   res.render('tlanding');
 });
 
-router.get('/wishlist-new', function(req, res, next) {
-  res.render('wishlist-new');
-
+router.get('/new-wishlist', function(req, res, next) {
+  res.render('new-wishlist');
 });
 
 router.get('/wishlist-active', function(req, res, next){
