@@ -31,17 +31,18 @@ router.get('/wishlist-active', function(req, res, next){
 router.get('/wishlist-past', function(req, res, next){
   res.render('wishlist-past');
 });
-
 router.post('/wishlist-api', function(req, res, next){
   client.itemSearch({
-  keywords: req.body.keywords,
-  responseGroup: 'ItemAttributes,Images'
+  keywords: req.body.keyword,
+  responseGroup: 'ItemAttributes,Offers,Images'
 }).then(function(results){
   res.json(results);
-  console.log(results);
 }).catch(function(err){
   console.log(err);
   });
+});
+router.post('/new-wishlist', function(req, res, next){
+  res.render('new-wishlist');
 });
 
 router.get('/wishlist-inprog', function(req, res, next) {
