@@ -28,25 +28,26 @@ $(document).ready(function(){
     }
 });
 
-  function populateContent(response) {
-    var results = response.data.children;
 
-      // Forms the html statement that gets added into the DOM
-      var elements = ['<li class=\"contentItem\">',
-                        '<div class="row">',
-                          '<div class="col-md-1">',
-                            '<h4>' + results[i].data.score + '</h4>',
-                          '</div>',
-                          '<div class="col-md-3">',
-                            '<img class=\"thumbnails\" src=\"' + (brokenImage ? 'images/RedditSnoo.png' : thumbNail) + '\"/>',
-                          '</div>',
-                          '<div class="col-md-8">',
-                            '<h4 class=\"contentTitle\">' + title + '<h4/>',
-                          '</div>',
-                        '</div>',
-                      '</li>'
-                    ].join('');
-      $('#main-content').append(elements);
-    }
-  } //end of populateContent function
-});
+//   function populateContent(response) {
+//     var results = response.data.children;
+//
+//       // Forms the html statement that gets added into the DOM
+//       var elements = ['<li class=\"contentItem\">',
+//                         '<div class="row">',
+//                           '<div class="col-md-1">',
+//                             '<h4>' + results[i].data.score + '</h4>',
+//                           '</div>',
+//                           '<div class="col-md-3">',
+//                             '<img class=\"thumbnails\" src=\"' + (brokenImage ? 'images/RedditSnoo.png' : thumbNail) + '\"/>',
+//                           '</div>',
+//                           '<div class="col-md-8">',
+//                             '<h4 class=\"contentTitle\">' + title + '<h4/>',
+//                           '</div>',
+//                         '</div>',
+//                       '</li>'
+//                     ].join('');
+//       $('#main-content').append(elements);
+//     }
+//   }//end of populateContent function
+// });
