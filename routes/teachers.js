@@ -31,12 +31,13 @@ router.get('/wishlist-past', function(req, res, next){
   res.render('wishlist-past');
 });
 
-router.get('/wishlist-api', function(req, res, next){
+router.post('/wishlist-api', function(req, res, next){
   client.itemSearch({
-  keywords: 'pencil',
-  responseGroup: 'ItemAttributes,Offers,Images'
+  keywords: req.body.keywords,
+  responseGroup: 'ItemAttributes,Images'
 }).then(function(results){
   res.json(results);
+  console.log(results);
 }).catch(function(err){
   console.log(err);
   });
