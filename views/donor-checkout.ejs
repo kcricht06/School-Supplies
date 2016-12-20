@@ -1,0 +1,70 @@
+<% include ./partials/header %>
+
+  <div class='col-xs-3 text-center'>
+    <button type='button' class='btn btn-primary btn-lg header-items'>Login</button>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="cc-form col-sm-5">
+      <form class="form order-form" id="checkout-form" action="index.html" method="post">
+        <div class="form-group">
+        <label id="credit-card" for="credit-card">Credit Card</label><br>
+        <select class="" id="credit-card"  placeholder="Enter email">
+          <optgroup label="Group 1">
+            <option value="option">Visa</option>
+            <option value="option">Discover</option>
+            <option value="option">MasterCard</option>
+            <option value="option">American Express</option>
+          </optgroup>
+        </select><br>
+        <input class="form-control" placeholder="Name">
+        <div class="">
+                <input type="text" id="cc-num" class="form-control" placeholder="Card Number">
+                <input type="text" id="exp" class="form-control" placeholder="Exp">
+                <input type="text" id="ccv" class="form-control" placeholder="CCV">
+        </div>
+        <label for="">Billing Address</label><br>
+        <input type="text" class="form-control" placeholder="Street 1">
+        <input type="text" class="form-control" placeholder="Street 2">
+        <input type="text" class="form-control" name="name" placeholder="City">
+        <select class="form-control" id="state">
+          <optgroup label="Group 1">
+            <option value="option">AL</option>
+            <option value="option">AR</option>
+            <option value="option">AZ</option>
+          </optgroup>
+        </select>
+        <input class="form-control" type="text" placeholder="zip" id="zip">
+      </div>
+      </div>
+      </form>
+      <div class="col-sm-3"></div>
+      <div class="col-sm-3">
+        <label>Donation Summary</label>
+        <div class="panel" id="donation-summary"></div>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+    <div class="row bottom-buttons">
+      <div class="col-sm-2">
+
+      </div>
+      <div class="col-sm-3">
+        <button type='button' class='btn btn-primary btn-lg'>Save for Later</button>
+      </div>
+      <div class="col-sm-2">
+
+      </div>
+      <div class="col-sm-3">
+        <button type='button' class='btn btn-primary btn-lg'>Checkout</button>
+      </div>
+      <div class="col-sm-2">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<% include ./partials/footer %>

@@ -1,0 +1,68 @@
+<% include ./partials/header %>
+<div class='col-xs-3 text-center'>
+  <button type='button' class='btn btn-primary btn-lg header-items'>Account</button>
+</div>
+</header>
+<div class="container">
+  <section>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="center-header">
+          Search
+        </div>
+        <div class="budget">
+          <h3>Budget</h3>
+          <form class="" action="index.html" method="post">
+            <label for="min">Min</label>
+            <select name="min">
+              <option value="">$0</option>
+              <option value="">$10</option>
+              <option value="">$100</option>
+              <option value="">$1000</option>
+              <option value="">$10,000</option>
+            </select>
+            -
+            <label for="max">Max</label>
+            <select name="max">
+              <option value="">$0</option>
+              <option value="">$10</option>
+              <option value="">$100</option>
+              <option value="">$1000</option>
+              <option value="">$10,000</option>
+            </select>
+          </form>
+        </div>
+        <div class="location">
+          <h3>Location</h3>
+          <form class="location-form" action="index.html" method="post">
+            <input type="text" class="form-control" name="name" value="">
+            </select>
+          </form>
+        </div>
+        <div class="school-map panel">
+          map here
+        </div>
+      </div>
+      <div class="col-sm-8">
+        <div class="help-panel panel hidden">
+          Search by budget and/or location if desired, select wishlist you would like to fulfill. You can only fulfill entire wishlists.
+          <a href="#"><div class="help-button">X</div></a>
+        </div>
+        <div class="center-header">
+        </div>
+        <div class="center-header" id="donor-specific-wishlist-header">
+          <button type='button' class='btn btn-primary btn-lg pull-left'>Add to Cart</button>
+          <button type='button' class='btn btn-primary btn-lg pull-right'>Continue</button>
+          <a href="#"><div class="help-button">?</div></a>
+          <div class="wishlist-number">Wishlist #1</div>
+        </div>
+        <div class="wishlist-area panel">
+          <div class="row">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<% include ./partials/footer %>

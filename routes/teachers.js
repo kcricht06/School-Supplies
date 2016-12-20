@@ -20,9 +20,8 @@ router.get('/tlanding', function(req, res, next) {
   res.render('tlanding');
 });
 
-router.get('/wishlist-new', function(req, res, next) {
-  res.render('wishlist-new');
-
+router.get('/new-wishlist', function(req, res, next) {
+  res.render('new-wishlist');
 });
 
 router.get('/wishlist-active', function(req, res, next){
