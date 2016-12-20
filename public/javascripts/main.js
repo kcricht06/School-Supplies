@@ -1,4 +1,3 @@
-
 function getObject(theObject) {
     var result = null;
     if(theObject instanceof Array) {
