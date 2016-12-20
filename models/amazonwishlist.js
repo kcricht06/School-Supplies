@@ -8,7 +8,7 @@ var schema = new mongoose.Schema({
   // date: {type: Date}
 });
 
-var model = mongoose.model('AmazonData', schema);
+var model = mongoose.model('Amazonwishlists', schema);
 
 // Make this available to our other files
 module.exports = model;

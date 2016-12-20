@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var amazon = require('amazon-product-api');
-var AmazonData = require('../models/amazondata');
+var Amazonwishlist = require('../models/amazondwishlist');
 
 
 var client = amazon.createClient({
@@ -47,24 +47,24 @@ router.post('/wishlist-api', function(req, res, next) {
 
 //--------------------------------------------------
 
-// router.post('/', function(req, res, next) {
-//     // var name = req.body.name;
-//     // var email = req.body.email;
-//     // var favorite = req.body.favorite;
-//
-//     var newAmazonData = AmazonData({
-//         // name: name,
-//         // email: email,
-//         // favorite: favorite,
-//     });
-//
-//     // Save the user
-//     newAmazonData.save(function(err, newAmazonData) {
-//         if (err) console.log(err);
-//
-//         res.send('AmazonData created!');
-//     });
-// });
+router.post('/', function(req, res, next) {
+    // var name = req.body.name;
+    // var email = req.body.email;
+    // var favorite = req.body.favorite;
+
+    var newAmazonWishList = Amazonwishlist({
+        // name: name,
+        // email: email,
+        // favorite: favorite,
+    });
+
+    // Save the user
+    newAmazonWishList.save(function(err, newAmazonwishlist) {
+        if (err) console.log(err);
+
+        res.send('AmazonData created!');
+    });
+});
 
 //--------------------------------------------------
 

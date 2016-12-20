@@ -28,6 +28,31 @@ $(document).ready(function(){
     }
 });
 
+function populateContent(response) {
+
+var label = response[i].ItemAttributes[i].Label[i];
+var price = response[i].ItemAttributes[i].ListPrice[i].FormattedPrice[i]
+var image = response[i].MediumImage[i].URL[i];
+
+for (var i=0; i<response.length; i++) {
+
+  var nwldata = [
+        '<div class="new-wishlist-tab col-sm-4">',
+              '<div class="new-wishlist-container panel">',
+                        '<div class="item-details">',
+                            '<div class="item-name">',label,'</div>',
+                            '<div class="item-price">',price,'</div>',
+                        '</div>',
+                        '<div class="new-wishlist-tab-img" style= "background-image:url(\'',image,'\')"/>',
+                        '</div>',
+
+              '</div>',
+        '</div>'
+        ].join('');
+      $('.new-wishlist-area .row').append(nwldata);
+    }
+  }
+
 
 //   function populateContent(response) {
 //     var results = response.data.children;
