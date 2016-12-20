@@ -34,9 +34,9 @@ router.get('/donor-specific-wishlist', function(req,res,next){
 router.get('/donor-checkout', function(req,res,next){
   res.render('donor-checkout');
 });
-router.get('/new-wishlist', function(req,res,next){
-  res.render('new-wishlist');
-});
+// router.get('/new-wishlist', function(req, res, next) {
+//   res.render('new-wishlist');
+// });
 
 router.post('/wishlist-api', function(req, res, next){
   client.itemSearch({
