@@ -114,8 +114,8 @@ footer {
 .new-wishlist-container.chosen{
   border:2px solid red !important;
 }
-.new-wishlist-area .row{
-  margin-left:25px;
+.new-wishlist-area .row,.new-wishlist-area-chosen .row{
+  margin:0px 25px;
 }
 .new-wishlist-parameters{
   line-height: 2em;
