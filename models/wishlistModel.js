@@ -8,5 +8,5 @@ var AmazonData = new mongoose.Schema({
 
 });
 
-var model = mongoose.model('keywords', AmazonData);
-module.exports = model;
+var WishlistModel = mongoose.model('keywords', AmazonData);
+module.exports = WishlistModel;
