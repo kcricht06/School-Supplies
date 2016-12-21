@@ -1,4 +1,4 @@
-require('dotenv').config();
+// require('dotenv').config();
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -10,6 +10,7 @@ var passport = require('passport');
 var Auth0Strategy = require('passport-auth0');
 var wishlistURI = process.env.WISHLIST_CONNECTION_STRING;
 var wishlistApi = require('./routes/wishlistapi');
+var jwt = require('express-jwt');
 mongoose.connect(wishlistURI);
 
 var index = require('./routes/index');
@@ -38,8 +39,12 @@ var strategy = new Auth0Strategy({
     // extraParams.id_token has the JSON Web Token
     // profile has all the information from the user
     return done(null, profile);
-  });
+});
 
+var jwtCheck = jwt({
+    secret: process.env.AUTH0_CLIENT_SECRET,
+    audience: process.env.AUTH0_CLIENT_ID
+});
 
 passport.use(strategy);
 
