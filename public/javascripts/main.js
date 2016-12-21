@@ -112,6 +112,17 @@ $('#add-items').on('click',function(){
 
 $('#submit-list').on('click',function(){
   var wishList = [];
-  var $itemArea = $('.new-wishlist-area-chosen .row div .item-details .item-name').text();
-  console.log('itemArea: ',$itemArea);
+
+  var $itemArea = $('.new-wishlist-area-chosen').find('.new-wishlist-container');
+  $itemArea.each(function(index, container){
+    wishList.push({
+      itemPrice: $(container).find('.item-price').text(),
+      itemName: $(container).find('.item-name').text(),
+      itemUrl: $(container).find('.new-wishlist-tab-img').css('background-image')
+    });
+  });
+
+  console.log(wishList);
+  // Write your ajax
+  console.log('itemArea: ',item);
 });

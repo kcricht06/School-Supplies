@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var Wishlist = require('../models/wishlist');
-var Item = require('../models/item');
-var WishlistItem = require('../models/wishlistitem');
+var User = require('../models/user');
+
 
 router.post('/',function(req,res,next){
   var postInfo = {
