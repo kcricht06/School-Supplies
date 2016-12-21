@@ -10,7 +10,7 @@ router.post('/',function(req,res,next){
     name: req.body.name,
     imgUrl: req.body.imgUrl
   };
-  var newPost = new Wishlist(postInfo);
+  var newPost = new Item(postInfo);
   console.log('Logging! New post: ',newPost);
 
   newPost.save(function(err,success){
