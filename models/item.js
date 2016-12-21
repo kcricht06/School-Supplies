@@ -1,12 +1,12 @@
 var mongoose = require('mongoose');
 
-var AmazonData = new mongoose.Schema({
-  keywords: { type: String, required: true},
+var schema = new mongoose.Schema({
+
   price: { type: String},
   name: { type: String},
   imgUrl: {type: String}
 
 });
 
-var model = mongoose.model('keywords', AmazonData);
+var model = mongoose.model('Item', schema);
 module.exports = model;
