@@ -112,5 +112,6 @@ $('#add-items').on('click',function(){
 
 $('#submit-list').on('click',function(){
   var wishList = [];
-
+  var $itemArea = $('.new-wishlist-area-chosen .row div .item-details .item-name').text();
+  console.log('itemArea: ',$itemArea);
 });
