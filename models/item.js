@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
-var AmazonData = new mongoose.Schema({
+var schema = new mongoose.Schema({
+
   keywords: { type: String, required: true},
   price: { type: String},
   name: { type: String},
@@ -8,5 +9,5 @@ var AmazonData = new mongoose.Schema({
 
 });
 
-var WishlistModel = mongoose.model('keywords', AmazonData);
-module.exports = WishlistModel;
+var model = mongoose.model('Item', schema);
+module.exports = model;

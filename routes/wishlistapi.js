@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var WishlistModel = require('../models/wishlistModel.js');
+var Wishlist = require('../models/wishlist');
+var Item = require('../models/item');
+var WishlistItem = require('../models/wishlistitem');
 
 router.post('/',function(req,res,next){
   var postInfo = {
@@ -8,7 +10,7 @@ router.post('/',function(req,res,next){
     name: req.body.name,
     imgUrl: req.body.imgUrl
   };
-  var newPost = new WishlistModel(postInfo);
+  var newPost = new Wishlist(postInfo);
   console.log('Logging! New post: ',newPost);
 
   newPost.save(function(err,success){
