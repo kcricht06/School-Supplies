@@ -1,4 +1,3 @@
-
 function getObject(theObject) {
     var result = null;
     if(theObject instanceof Array) {
@@ -43,18 +42,6 @@ var data = [
   '<div class="wishlist-tab col-sm-4">',
     '<div class="panel">',
     '<ol>',
-      '<li>',
-      'item',
-      '</li>',
-      '<li>',
-      'item',
-      '</li>',
-      '<li>',
-      'item',
-      '</li>',
-      '<li>',
-      'item',
-      '</li>',
     '</ol>',
     '</div>',
 
@@ -119,10 +106,12 @@ $('#add-items').on('click',function(){
     $(this).toggleClass('chosen');
     var temp=$(this);
     var result=$(this).clone();
-    $('.new-wishlist-area-chosen').append(result);
+    $('.new-wishlist-area-chosen .row').append(result);
   });
 });
 
 $('#submit-list').on('click',function(){
-
+  var wishList = [];
+  var $itemArea = $('.new-wishlist-area-chosen .row div .item-details .item-name').text();
+  console.log('itemArea: ',$itemArea);
 });
