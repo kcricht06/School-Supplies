@@ -106,10 +106,11 @@ $('#add-items').on('click',function(){
     $(this).toggleClass('chosen');
     var temp=$(this);
     var result=$(this).clone();
-    $('.new-wishlist-area-chosen').append(result);
+    $('.new-wishlist-area-chosen .row').append(result);
   });
 });
 
 $('#submit-list').on('click',function(){
+  var wishList = [];
 
 });
