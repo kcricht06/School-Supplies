@@ -4,19 +4,15 @@ var Schema = mongoose.Schema,
 
 var schema = new mongoose.Schema({
 
-  wishlist:{
-    type:ObjectId,
-    required:true,
-    ref: 'Wishlist',
-    index:true
-  },
-  item:{
-    type:ObjectId,
-    required:true,
-    ref: 'Wishlist',
-    index:true
-  },
-
+  // wishlist:{
+  //   type:ObjectId,
+  //   required:true,
+  //   ref: 'Wishlist',
+  //   index:true
+  // },
+  user_name:{type:String},
+  school_name:{type:String},
+  userId:{type:String}
 
 });
 
