@@ -9,12 +9,15 @@ var client = amazon.createClient({
   awsSecret: process.env.SECRET_ACCESS_KEY,
   awsTag: process.env.AWS_TAG
 });
+
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.render('index');
 });
 
 //--------------------------------------------------
+
 
 router.get('/tlanding', function(req, res, next) {
   res.render('tlanding');
