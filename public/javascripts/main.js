@@ -110,10 +110,17 @@ $('#add-items').on('click',function(){
   });
 });
 
+
+
+///SUBMIT LIST CLICK EVENT
+
 $('#submit-list').on('click',function(){
   var wishList = [];
-
+  // Loop through wishlist, and add items to theItems array
   var $itemArea = $('.new-wishlist-area-chosen').find('.new-wishlist-container');
+  var due = $('#due').val();
+  var wlName = $('#wl-name').val();
+
   $itemArea.each(function(index, container){
     wishList.push({
       itemPrice: $(container).find('.item-price').text(),
@@ -122,7 +129,24 @@ $('#submit-list').on('click',function(){
     });
   });
 
-  console.log(wishList);
-  // Write your ajax
-  console.log('itemArea: ',item);
+  var update = $.ajax({
+    url:'/wishlistapi/add-wishlist',
+    method:'POST',
+    data:{
+      wishList: JSON.stringify(wishList),
+      due: due,
+      name: wlName
+    }
+  });
+
+
+
+  update.done(function(response){
+    console.log("Success, baby!!");
+    console.log('item: ',insert);
+  });
+
+  update.fail(function(error){
+    console.log('Error: ',error);
+  });
 });
