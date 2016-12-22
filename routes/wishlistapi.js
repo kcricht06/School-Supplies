@@ -39,9 +39,10 @@ router.get('/teacher-retrieve-wishlists',function(req,res,next){
   Wishlist.find({},'',function(err,items){
     // console.log('the items are: ',items);
       // res.render('wishlist-active',items);
-      console.log('MY DATA IS ',items[0].items);
-      var goods = items[0].items;
-      res.json(goods);
+      console.log('MY DATA IS ',items);
+      var goods = items[0];
+      console.log('goods: ',goods);
+      res.json(items);
     });
   });
 

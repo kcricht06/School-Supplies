@@ -93,7 +93,9 @@ $('#submit-list').on('click',function(){
   var wishList = [];
   var $itemArea = $('.new-wishlist-area-chosen').find('.new-wishlist-container');
   var due = $('#due').val();
+  $('#due').val('');
   var wlName = $('#wl-name').val();
+  $('#wl-name').val('');
   console.log('itemArea: ',$itemArea);
   $itemArea.each(function(index, container){
     wishList.push({
@@ -133,20 +135,22 @@ if(teacher_wl_panel.length > 0){
     });
 
   populate_twlpanel.done(function(results){
-    results = JSON.parse(results);
+    // results = JSON.parse(results);
     console.log('teacher_wls: ',results);
 
     console.log('image url is: ',results[0].itemUrl);
     for(var i=0;i<results.length;i++){
-      var url = results[i].itemUrl;
-      var name = results[i].itemName;
-      var price = results[i].itemPrice;
+      var url = JSON.parse(results[i].items);
+      url = url[0].itemUrl;
+      console.log('the url is: ',url);
+      var name = results[i].name;
+      var due = results[i].duedate;
       var nwldata = [
         '<div class="new-wishlist-tab col-sm-4">',
               '<div class="new-wishlist-container panel">',
                         '<div class="item-details">',
                             '<div class="item-name">',name,'</div>',
-                            '<div class="item-price">',price,'</div>',
+                            '<div class="item-price">Due date: ',due,'</div>',
                         '</div>',
                         '<img class="new-wishlist-tab-img" src= "',url,'"/>',
               '</div>',
@@ -156,8 +160,31 @@ if(teacher_wl_panel.length > 0){
     }
   });
 
+
   populate_twlpanel.fail(function(err){
     console.log('error: ',err);
   });
 
 };
+
+
+  // CODE FOR POPULATING INDIVIDUAL ITEMS FROM MLAB DATABASE:
+
+
+  // for(var i=0;i<results.length;i++){
+  //   var url = results[i].itemUrl;
+  //   var name = results[i].itemName;
+  //   var price = results[i].itemPrice;
+  //   var nwldata = [
+  //     '<div class="new-wishlist-tab col-sm-4">',
+  //           '<div class="new-wishlist-container panel">',
+  //                     '<div class="item-details">',
+  //                         '<div class="item-name">',name,'</div>',
+  //                         '<div class="item-price">',price,'</div>',
+  //                     '</div>',
+  //                     '<img class="new-wishlist-tab-img" src= "',url,'"/>',
+  //           '</div>',
+  //     '</div>'
+  //     ].join('');
+  //   $('#teachers_lists .row').append(nwldata);
+  // }
