@@ -1,32 +1,4 @@
-function getObject(theObject) {
-    var result = null;
-    if(theObject instanceof Array) {
-        for(var i = 0; i < theObject.length; i++) {
-            result = getObject(theObject[i]);
-            if (result) {
-                break;
-            }
-        }
-    }
-    else
-    {
-        for(var prop in theObject) {
-            console.log(prop + ': ' + theObject[prop]);
-            if(prop == 'id') {
-                if(theObject[prop] == 1) {
-                    return theObject;
-                }
-            }
-            if(theObject[prop] instanceof Object || theObject[prop] instanceof Array) {
-                result = getObject(theObject[prop]);
-                if (result) {
-                    break;
-                }
-            }
-        }
-    }
-    return result;
-}
+
 
 $('.center-header a').on('click',function(e){
   e.preventDefault();
@@ -61,9 +33,12 @@ $('#srch-trm-btn').on('click',function(e){
 });
 
 function wishlistApiQuery(keyword){
+  // ajax is for making a request to back end in real time
+  // this makes a call to the back end with the url as endpoint
   var apiQuery = $.ajax({
+    // the url is where we're sending the request to
     url:"wishlist-api",
-    method:"POST",
+    method:"GET",
     data:{
       keyword:keyword
     }
@@ -110,19 +85,66 @@ $('#add-items').on('click',function(){
   });
 });
 
-$('#submit-list').on('click',function(){
-  var wishList = [];
 
-  var $itemArea = $('.new-wishlist-area-chosen').find('.new-wishlist-container');
-  $itemArea.each(function(index, container){
-    wishList.push({
-      itemPrice: $(container).find('.item-price').text(),
-      itemName: $(container).find('.item-name').text(),
-      itemUrl: $(container).find('.new-wishlist-tab-img').css('background-image')
-    });
-  });
-
-  console.log(wishList);
   // Write your ajax
-  console.log('itemArea: ',item);
-});
+
+  // on pressing submit, we make a ajax post request to the backend
+  // where there's a route to set up the data structure(mongoose stuff)
+  // where it then communicates with the servers. think about that
+  // drawing Mike made with the client-request to server-response.
+
+
+  // i need to extract the data from the front end to pass the info
+  // to the backend so that the backend can upload to mlabs
+
+
+    $('#submit-list').on('click',function(){
+      var wishList = [];
+
+      // so now we need to extract the values from the DOM:
+      // the '$itemArea' is a jQuery object that points to the 'new wishlist container'
+      var $itemArea = $('.new-wishlist-area-chosen').find('.new-wishlist-container');
+      var due = $('#due').val(); //due field
+      var wlName = $('#wl-name').val(); //wish list name
+
+      // populate array using jQuery's each
+      $itemArea.each(function(index, container){
+        // DOM traversal starting from container and find to extract value in
+        // which is used to push values into array
+        wishList.push({
+          itemPrice: $(container).find('.item-price').text(),
+          itemName: $(container).find('.item-name').text(),
+          itemUrl: $(container).find('.new-wishlist-tab-img').css('background-image')
+        });
+      });
+
+      //once we have our wishlist array, we make an ajax request to
+      // the url '/wishlistapi/add-wishlist' which is defined in the
+      // respective route file (routes/wishlistapi.js).
+
+      // From the that file (wishlistapi.js), the route '/add-wishlist'
+      // is defined and we extract the values from the req.body and pass them
+      // into an object where we use that object to pass that data
+      // into a constructor
+
+      // the req.body that is viewable from the back end
+      // will contain the data being sent
+      var update = $.ajax({
+        url:'/wishlistapi/add-wishlist',
+        method:'POST',
+        data:{
+          wishList: JSON.stringify(wishList),
+          due: due,
+          name: wlName
+        }
+      });
+
+      update.done(function(response){
+        console.log("Success, baby!!");
+      });
+
+      update.fail(function(error){
+        console.log('Error: ',error);
+      });
+
+    });
