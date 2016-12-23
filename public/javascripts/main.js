@@ -138,13 +138,24 @@ if(teacher_wl_panel.length > 0){
     // results = JSON.parse(results);
     console.log('teacher_wls: ',results);
 
-    console.log('image url is: ',results[0].itemUrl);
+    console.log('RESULTS: ',results[0]);
+    var total = 0;
     for(var i=0;i<results.length;i++){
       var url = JSON.parse(results[i].items);
       url = url[0].itemUrl;
-      console.log('the url is: ',url);
+      // var price = JSON.parse(results[i].items);
+      // console.log('price array: ',price);
+
+        // for(var i=0; i<price.length; i++){
+        //   price = price[i].itemPrice;
+        //   if(priceInt) {var priceInt = Number(price.replace(/[^0-9\.]+/g,""));
+        //   console.log('price for this is: ',priceInt);
+          // total += priceInt;}
+        // }
+
       var name = results[i].name;
       var due = results[i].duedate;
+      console.log('current total: ',total);
       var nwldata = [
         '<div class="new-wishlist-tab col-sm-4">',
               '<div class="new-wishlist-container panel">',
@@ -158,6 +169,7 @@ if(teacher_wl_panel.length > 0){
         ].join('');
       $('#teachers_lists .row').append(nwldata);
     }
+    // console.log('total: ',total);
   });
 
 
