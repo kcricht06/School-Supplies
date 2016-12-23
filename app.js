@@ -8,6 +8,9 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var Auth0Strategy = require('passport-auth0');
+var wishlistURI = process.env.WISHLIST_CONNECTION_STRING;
+var wishlistApi = require('./routes/wishlistapi');
+mongoose.connect(wishlistURI);
 
 var index = require('./routes/index');
 // var users = require('./routes/users');
@@ -72,6 +75,8 @@ app.use('/', index);
 app.use('/teachers', teachers);
 // defined endpoint for givers ****// USES THE ROUTES FILES
 app.use('/givers', givers);
+
+app.use('/wishlistapi', wishlistApi);
 
 
 // catch 404 and forward to error handler
