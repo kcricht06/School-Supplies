@@ -70,9 +70,8 @@ footer {
   margin-bottom: 40px;
 }
 
-.panel {
-  margin-top: 20px;
-
+#panel-color {
+  background-color: #7c946f;
 }
 
 .page-header {
@@ -80,10 +79,10 @@ footer {
   background-color: #dff2da;
 }
 
-.panel-body {
+/*.panel-body {
   min-height: 450px;
   max-height: 450px;
-}
+}*/
 
 
 
@@ -112,8 +111,10 @@ footer {
   overflow: scroll;
 }
 .new-wishlist-container.chosen{
-  border:2px solid red !important;
+  border:3px solid #5bc0de !important;
+  box-shadow: 0px 0px 20px #5bc0de;
 }
+
 .new-wishlist-area .row,.new-wishlist-area-chosen .row{
   margin:0px 25px;
 }
