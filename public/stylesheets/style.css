@@ -22,7 +22,7 @@ html {
   top:50vh;
   width:100%;
   color:#fff;
-  opacity:0.5;
+  opacity:1;
 }
 
 
@@ -142,9 +142,10 @@ background-color: #669900;
   line-height: 2em;
   margin-bottom: 25px;
 }
-.new-wishlist-buttons button{
+.new-wishlist-buttons button, .wishlist-active-buttons button{
   margin-bottom:25px;
   width:100%;
+  padding: 10px;
 }
 .new-wishlist-container{
   width:95%;

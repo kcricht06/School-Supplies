@@ -1,16 +1,16 @@
-//HELP BUTTON CLICK EVENTS (CURRENTLY NOT PART OF MAIN APPLICATION)
+//HELP BUTTON CLICK EVENTS (CURRENTLY NOT PART OF MAIN APPLICATION):
 
     $('.center-header a').on('click',function(e){
       e.preventDefault();
       $('.help-panel').removeClass('hidden');
     });
-
     $('.help-panel a').on('click',function(e){
       e.preventDefault();
       $('.help-panel').addClass('hidden');
     });
 
 //POPULATE GIVER WISHLIST PAGE WITH DUMMY WISHLISTS:
+
     var data = [
       '<div class="wishlist-tab col-sm-4">',
         '<div class="panel">',
@@ -18,7 +18,6 @@
         '</ol>',
         '</div>',
       '</div>'].join('');
-
     for(var i=0; i<20; i++){
       $('.wishlist-area .row').append(data);
     }
@@ -43,27 +42,27 @@ function wishlistApiQuery(keyword){
     $('.new-wishlist-area .row').empty();
     console.log('product: ',product);
     for(var i=0; i<product.length; i++){
-            var priceExists = product[i].ItemAttributes[0].ListPrice
-            var label =  product[i].ItemAttributes[0].Label[0];
-            var price = priceExists ? product[i].ItemAttributes[0].ListPrice[0].FormattedPrice[0] : 'No Price';
-            var image =  product[i].MediumImage[0].URL[0];
-            var nwldata = [
-              '<div class="new-wishlist-tab col-sm-4">',
-                    '<div class="new-wishlist-container panel">',
-                              '<div class="item-details">',
-                                  '<div class="item-name">',label,'</div>',
-                                  '<div class="item-price">',price,'</div>',
-                              '</div>',
-                              '<img class="new-wishlist-tab-img" src= "',image,'"/>',
-                    '</div>',
-              '</div>'
-              ].join('');
+        var priceExists = product[i].ItemAttributes[0].ListPrice
+        var label =  product[i].ItemAttributes[0].Label[0];
+        var price = priceExists ? product[i].ItemAttributes[0].ListPrice[0].FormattedPrice[0] : 'No Price';
+        var image =  product[i].MediumImage[0].URL[0];
+        var nwldata = [
+          '<div class="new-wishlist-tab col-sm-4">',
+            '<div class="new-wishlist-container panel">',
+              '<div class="item-details">',
+                '<div class="item-name">',label,'</div>',
+                '<div class="item-price">',price,'</div>',
+              '</div>',
+              '<img class="new-wishlist-tab-img" src= "',image,'"/>',
+            '</div>',
+          '</div>'
+          ].join('');
       $('.new-wishlist-area .row').append(nwldata);
     }
   });
 }
 
-//ADD CHOSEN ITEMS TO THE WISHLIST STAGING PANEL
+//ADD CHOSEN ITEMS TO THE WISHLIST STAGING PANEL:
 
 $('body').on('click','.new-wishlist-container',function(){
   console.log('added');
@@ -78,7 +77,8 @@ $('#add-items').on('click',function(){
   });
 });
 
-///SUBMIT LIST CLICK EVENT
+///SUBMIT LIST CLICK EVENT:
+
 function hideModals(){
   $('.submit-modal').hide("slow");
   $('.submit-message').hide("slow");
@@ -98,6 +98,7 @@ function addHide(){
 $('#submit-list').on('click',function(){
 
   // DISPLAY SUBMIT MODAL ON NEW WISHLISTS PAGE:
+
   $('.submit-modal').removeClass("hidden");
   $('.submit-message').removeClass("hidden");
 
@@ -106,7 +107,8 @@ $('#submit-list').on('click',function(){
   setTimeout(addHide,1900);
   setTimeout(showModals,2000)
 
-  //ADD SUBMIT LIST TO THE MLAB DATABASE
+  //ADD SUBMIT LIST TO THE MLAB DATABASE:
+
   var wishList = [];
   var $itemArea = $('.new-wishlist-area-chosen').find('.new-wishlist-container');
   var due = $('#due').val();
@@ -134,7 +136,6 @@ $('#submit-list').on('click',function(){
     }
   });
   update.done(function(response){
-    console.log("Success, baby!!");
   });
 
   update.fail(function(error){
@@ -142,51 +143,35 @@ $('#submit-list').on('click',function(){
   });
 });
 
-
 //ON PAGE LOAD: DISPLAY WISHLISTS TO teacher's panel
 
 var teacher_wl_panel = $('#teachers_lists');
 
 if(teacher_wl_panel.length > 0){
   var populate_twlpanel = $.ajax({
-      url:'/wishlistapi/teacher-retrieve-wishlists',
-      method:'GET'
-    });
+    url:'/wishlistapi/teacher-retrieve-wishlists',
+    method:'GET'
+});
   populate_twlpanel.done(function(results){
-    // results = JSON.parse(results);
-    console.log('teacher_wls: ',results);
-    console.log('RESULTS: ',results[0]);
     var total = 0;
     for(var i=0;i<results.length;i++){
       var url = JSON.parse(results[i].items);
       url = url[0].itemUrl;
-      // var price = JSON.parse(results[i].items);
-      // console.log('price array: ',price);
-
-        // for(var i=0; i<price.length; i++){
-        //   price = price[i].itemPrice;
-        //   if(priceInt) {var priceInt = Number(price.replace(/[^0-9\.]+/g,""));
-        //   console.log('price for this is: ',priceInt);
-          // total += priceInt;}
-        // }
-
       var name = results[i].name;
       var due = results[i].duedate;
-      console.log('current total: ',total);
       var nwldata = [
         '<div class="new-wishlist-tab col-sm-4">',
-              '<div class="new-wishlist-container panel">',
-                        '<div class="item-details">',
-                            '<div class="item-name">',name,'</div>',
-                            '<div class="item-price">Due date: ',due,'</div>',
-                        '</div>',
-                        '<img class="new-wishlist-tab-img" src= "',url,'"/>',
-              '</div>',
+          '<div class="new-wishlist-container panel">',
+            '<div class="item-details">',
+              '<div class="item-name">',name,'</div>',
+              '<div class="item-price">Due date: ',due,'</div>',
+            '</div>',
+            '<img class="new-wishlist-tab-img" src= "',url,'"/>',
+          '</div>',
         '</div>'
         ].join('');
       $('#teachers_lists .row').append(nwldata);
     }
-    // console.log('total: ',total);
   });
 
   populate_twlpanel.fail(function(err){

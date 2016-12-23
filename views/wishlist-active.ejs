@@ -5,31 +5,26 @@
 </div>
 </header>
 
-<!-- ============================================================== -->
-
 <div class="container">
 
-<div class="row">
+<div class="row wishlist-active-buttons">
   <form class='form-inline'>
 
 <!-- ACTIVE WISHLISTS BUTTON -->
-  <div class='col-md-2 form-group'>
+  <div class='col-sm-4 form-group'>
     <form method='get'>
       <button type='submit' class='btn btn-primary btn-lg' formaction='/teachers/wishlist-active'>Active Wishlists</button>
     </form>
   </div>
-
 <!-- PAST WISHLISTS BUTTON -->
-  <div class='col-md-2 form-group'>
+  <div class='col-sm-4 form-group'>
     <form method='get'>
       <button type='submit' class='btn btn-primary btn-lg' formaction='/teachers/wishlist-past'>Past Wishlists</button>
     </form>
   </div>
 
-  <div class="col-md-5">
-  </div>
 
-  <div class="col-md-3 form-group">
+  <div class="col-sm-4 form-group">
     <label for="date-field">Due By:</label>
     <input type="text" class="form-control" placeholder="Month/Day/Year" name="name" value="">
   </div>
@@ -56,10 +51,18 @@
   </div>
 </div>
 
-  <div class="row">
+  <div class="row wishlist-active-buttons">
 <!-- SEE ADDED ITEMS BUTTON -->
-    <div class='col-md-2'>
+    <div class='col-sm-4'>
       <button type='button' class='btn btn-primary btn-lg btn-bot'>See Added Items</button>
+    </div>
+
+    <div class='col-sm-4'>
+      <form method="get">
+        <button type='submit' formaction='/teachers/new-wishlist' class='btn btn-primary btn-lg btn-bot'>Create New List</button>
+      </form>
+    </div>
+    <div class='col-sm-4'>
     </div>
   </div>
 </div>

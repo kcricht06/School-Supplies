@@ -12,13 +12,9 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
-
-//--------------------------------------------------
-
 router.get('/glanding', function(req, res, next) {
   res.render('glanding');
 });
-
 
 router.get('/wishlist-fulfilled', function(req, res, next) {
   res.send('GIVER make VIEW IN-PROGRESS WISHLIST goes here');
@@ -34,9 +30,6 @@ router.get('/donor-specific-wishlist', function(req,res,next){
 router.get('/donor-checkout', function(req,res,next){
   res.render('donor-checkout');
 });
-// router.get('/new-wishlist', function(req, res, next) {
-//   res.render('new-wishlist');
-// });
 
 router.post('/wishlist-api', function(req, res, next){
   client.itemSearch({

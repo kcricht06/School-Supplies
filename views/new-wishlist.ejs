@@ -3,7 +3,7 @@
 
 </div>
 <div class="submit-message hidden col-sm-6">
-  Your wishlist has been submitted! :)
+  Your wishlist has been submitted!
 </div>
 <div class='col-xs-3 text-center'>
   <button type='button' class='btn btn-primary btn-lg header-items'>Account</button>
@@ -11,13 +11,11 @@
 </header>
 
 <div class="container">
-
     <div class="row new-wishlist-parameters">
-
       <form class="form-inline">
         <div class='col-md-4 form-group'>
           <label for="wishlist-name">New Wish List:</label>
-          <input type="text" class="form-control" placeholder="Name">
+          <input type="text" id="wl-name" class="form-control" placeholder="Name">
         </div>
 
         <div class=" col-md-4 form-group">
@@ -31,7 +29,7 @@
 
         <div class="col-md-4 form-group">
           <label for="date-field">Due By:</label>
-          <input type="text" class="form-control" placeholder="Month/Day/Year" name="name" value="">
+          <input type="text" id="due" class="form-control" placeholder="Month/Day/Year" name="name" value="">
         </div>
 
       </form>
@@ -63,11 +61,12 @@
     </div>
   </div>
   <div class="row new-wishlist-buttons">
-    <div class="col-sm-3"><button type='button' id="add-items" class='btn btn-primary btn-lg'>Add Selected Items +</button></div>
-    <div class="col-sm-1"></div>
-    <!-- <div class="col-sm-3"><button type='button' class='btn btn-primary btn-lg'>See Added Items</button></div> -->
-    <div class="col-sm-5"></div>
-    <div class="col-sm-3"><button type='button' id="submit-list" class='btn btn-primary btn-lg'>Submit</button></div>
+    <div class="col-sm-4"><button type='button' id="add-items" class='btn btn-primary btn-lg'>Add Selected Items +</button></div>
+    <form method="get">
+      <div class="col-sm-4">
+        <button type='submit' formaction='/teachers/wishlist-active' class='btn btn-primary btn-lg btn-bot'>My Wishlists</button>
+      </div>
+    <div class="col-sm-4"><button type='button' id="submit-list" class='btn btn-primary btn-lg'>Submit</button></div>
   </div>
 </div>
 
