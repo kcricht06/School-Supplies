@@ -1,31 +1,28 @@
+//HELP BUTTON CLICK EVENTS (CURRENTLY NOT PART OF MAIN APPLICATION)
 
-$('.center-header a').on('click',function(e){
-  e.preventDefault();
-  $('.help-panel').removeClass('hidden');
-});
+    $('.center-header a').on('click',function(e){
+      e.preventDefault();
+      $('.help-panel').removeClass('hidden');
+    });
 
-$('.help-panel a').on('click',function(e){
-  e.preventDefault();
-  $('.help-panel').addClass('hidden');
-});
+    $('.help-panel a').on('click',function(e){
+      e.preventDefault();
+      $('.help-panel').addClass('hidden');
+    });
 
-var data = [
-  '<div class="wishlist-tab col-sm-4">',
-    '<div class="panel">',
-    '<ol>',
-    '</ol>',
-    '</div>',
-  '</div>'
+//POPULATE GIVER WISHLIST PAGE WITH DUMMY WISHLISTS:
+    var data = [
+      '<div class="wishlist-tab col-sm-4">',
+        '<div class="panel">',
+        '<ol>',
+        '</ol>',
+        '</div>',
+      '</div>'].join('');
 
-].join('');
-
-for(var i=0; i<20; i++){
-  $('.wishlist-area .row').append(data);
-}
-
-
-
-//AMAZON API DATA QUERIES:
+    for(var i=0; i<20; i++){
+      $('.wishlist-area .row').append(data);
+    }
+//SEARCH FOR ITEMS ON THE AMAZON API AND DISPLAY IN ITEM PANEL:
 
 $('#srch-trm-btn').on('click',function(e){
   e.preventDefault();
@@ -48,28 +45,23 @@ function wishlistApiQuery(keyword){
     for(var i=0; i<product.length; i++){
             var priceExists = product[i].ItemAttributes[0].ListPrice
             var label =  product[i].ItemAttributes[0].Label[0];
-
             var price = priceExists ? product[i].ItemAttributes[0].ListPrice[0].FormattedPrice[0] : 'No Price';
-
             var image =  product[i].MediumImage[0].URL[0];
-
-
-      var nwldata = [
-        '<div class="new-wishlist-tab col-sm-4">',
-              '<div class="new-wishlist-container panel">',
-                        '<div class="item-details">',
-                            '<div class="item-name">',label,'</div>',
-                            '<div class="item-price">',price,'</div>',
-                        '</div>',
-                        '<img class="new-wishlist-tab-img" src= "',image,'"/>',
-              '</div>',
-        '</div>'
-        ].join('');
+            var nwldata = [
+              '<div class="new-wishlist-tab col-sm-4">',
+                    '<div class="new-wishlist-container panel">',
+                              '<div class="item-details">',
+                                  '<div class="item-name">',label,'</div>',
+                                  '<div class="item-price">',price,'</div>',
+                              '</div>',
+                              '<img class="new-wishlist-tab-img" src= "',image,'"/>',
+                    '</div>',
+              '</div>'
+              ].join('');
       $('.new-wishlist-area .row').append(nwldata);
     }
   });
 }
-
 
 //ADD CHOSEN ITEMS TO THE WISHLIST STAGING PANEL
 
@@ -86,10 +78,35 @@ $('#add-items').on('click',function(){
   });
 });
 
-
 ///SUBMIT LIST CLICK EVENT
+function hideModals(){
+  $('.submit-modal').hide("slow");
+  $('.submit-message').hide("slow");
+}
+function showModals(){
+  $('.submit-modal').show("fast");
+  $('.submit-message').show("fast");
+}
+
+function addHide(){
+  $('.submit-modal').addClass("hidden");
+  $('.submit-message').addClass("hidden");
+  $('')
+}
+
 
 $('#submit-list').on('click',function(){
+
+  // DISPLAY SUBMIT MODAL ON NEW WISHLISTS PAGE:
+  $('.submit-modal').removeClass("hidden");
+  $('.submit-message').removeClass("hidden");
+
+  setTimeout(hideModals,1000);
+  setTimeout(addHide,1500)
+  setTimeout(addHide,1900);
+  setTimeout(showModals,2000)
+
+  //ADD SUBMIT LIST TO THE MLAB DATABASE
   var wishList = [];
   var $itemArea = $('.new-wishlist-area-chosen').find('.new-wishlist-container');
   var due = $('#due').val();
@@ -125,19 +142,19 @@ $('#submit-list').on('click',function(){
   });
 });
 
-//DISPLAY WISHLISTS TO teacher's panel
-var teacher_wl_panel = $('#teachers_lists');
-if(teacher_wl_panel.length > 0){
 
+//ON PAGE LOAD: DISPLAY WISHLISTS TO teacher's panel
+
+var teacher_wl_panel = $('#teachers_lists');
+
+if(teacher_wl_panel.length > 0){
   var populate_twlpanel = $.ajax({
       url:'/wishlistapi/teacher-retrieve-wishlists',
       method:'GET'
     });
-
   populate_twlpanel.done(function(results){
     // results = JSON.parse(results);
     console.log('teacher_wls: ',results);
-
     console.log('RESULTS: ',results[0]);
     var total = 0;
     for(var i=0;i<results.length;i++){
@@ -172,13 +189,10 @@ if(teacher_wl_panel.length > 0){
     // console.log('total: ',total);
   });
 
-
   populate_twlpanel.fail(function(err){
     console.log('error: ',err);
   });
-
 };
-
 
   // CODE FOR POPULATING INDIVIDUAL ITEMS FROM MLAB DATABASE:
 
