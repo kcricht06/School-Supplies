@@ -74,17 +74,14 @@ footer {
   background-color: #7c946f;
 }
 
+.btn:focus, .btn-success:focus {
+background-color: #669900;
+}
+
 .page-header {
   margin-top: 0px;
   background-color: #dff2da;
 }
-
-/*.panel-body {
-  min-height: 450px;
-  max-height: 450px;
-}*/
-
-
 
 .date-input {
   max-width: 50px;
